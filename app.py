@@ -28,6 +28,21 @@ def api():
         data=json.load(f)
     return jsonify(data)
 
+@app.route('/submittodoitem', methods=['POST'])
+def submit_todo_item():
+    item_name = request.form.get('itemName')
+    item_description = request.form.get('itemDescription')
+
+    todo_item = {
+        "itemName": item_name,
+        "itemDescription": item_description,
+        "createdAt": datetime.utcnow()
+    }
+
+    db.todo_items.insert_one(todo_item)
+
+    return "To-Do Item Submitted Successfully"
+
 
 
 @app.route('/age')
