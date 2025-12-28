@@ -9,6 +9,12 @@
       "id": 2,
       "name": "Guest",
       "role": "User"
+    },
+    {
+      "id": 3,
+      "name": "Neha",
+      "role": "Viewer"
     }
   ]
+
 }
