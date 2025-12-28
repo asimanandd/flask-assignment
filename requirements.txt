@@ -1,0 +1,6 @@
+flask
+datetime
+mongodb
+pymongo
+dnspython
+python -dotenv
