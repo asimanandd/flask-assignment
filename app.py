@@ -1,4 +1,6 @@
+import json
 from flask import Flask, request, render_template
+from flask import jsonify
 from datetime import datetime
 from pymongo import MongoClient
 import certifi
@@ -21,6 +23,14 @@ def home():
     return render_template('index.html', day_of_week=day_of_week)
 
 @app.route('/api')
+def api():
+    with open('data.json') as f:
+        data=json.load(f)
+    return jsonify(data)
+
+
+
+@app.route('/age')
 def name():
     name = request.values.get('name')
     age = request.values.get('age')
